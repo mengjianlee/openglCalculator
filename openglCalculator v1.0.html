@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OpenGL Calculator v1.0</title>
+  </head>
+  <body>
+    <!-- Content -->
+    <label>max width(px) :
+      <input id='maxWidth' onkeyup="calOutWidth();calInWidth();"/>
+    </label>
+<br/>
+    <label>in width(px) :
+      <input id='inWidth' onkeyup="calOutWidth();"/>
+    </label>
+<br/>
+    <label>out width(percent) :
+      <input id='outWidth' onkeyup="calInWidth();"/>
+    </label>
+<br/>
+<br/>
+<br/>
+    <label>max height(px) :
+      <input id='maxHeight' onkeyup="calOutHeight();calInHeight();"/>
+    </label>
+<br/>
+    <label>in height(px) :
+      <input id='inHeight' onkeyup="calOutHeight();"/>
+    </label>
+<br/>
+    <label>out height(percent) :
+      <input id='outHeight' onkeyup="calInHeight();"/>
+    </label>
+<br/>
+<br/>
+<br/>
+    <label>rgb(255) :
+      <input id='rgbTFF' onkeyup="calRgbPercent();"/>
+    </label>
+<br/>
+    <label>rgb(percent) :
+      <input id='rgbPercent' onkeyup="calRgbTFF();"/>
+    </label>
+  </body>
+<script type="text/javascript">
+
+function calOutWidth() {
+    var maxWidthMid = document.getElementById("maxWidth").value/2;
+    var inWidth = document.getElementById("inWidth").value;
+    document.getElementById("outWidth").value = ((inWidth - maxWidthMid)/maxWidthMid);
+}
+
+function calInWidth() {
+    var maxWidthMid = document.getElementById("maxWidth").value/2;
+    var outWidth = document.getElementById("outWidth").value;
+    document.getElementById("inWidth").value = outWidth*maxWidthMid +maxWidthMid ;
+}
+
+function calOutHeight() {
+    var maxHeightMid = document.getElementById("maxHeight").value/2;
+    var inHeight = document.getElementById("inHeight").value;
+    document.getElementById("outHeight").value = ((maxHeightMid - inHeight)/maxHeightMid);
+}
+
+function calInHeight() {
+    var maxHeightMid = document.getElementById("maxHeight").value/2;
+    var outHeight = document.getElementById("outHeight").value;
+    document.getElementById("inHeight").value = -(outHeight*maxHeightMid - maxHeightMid) ;
+}
+
+function calRgbTFF(){
+    var rgbPercent = document.getElementById("rgbPercent").value
+    document.getElementById("rgbTFF").value = rgbPercent*255;
+}
+
+function calRgbPercent(){
+    var rgbTFF = document.getElementById("rgbTFF").value
+    document.getElementById("rgbPercent").value = rgbTFF/255;
+}
+
+</script>
+</html>
